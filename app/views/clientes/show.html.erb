@@ -1,0 +1,13 @@
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1>
+        <%= @cliente.nombre %>
+      </h1>
+    </section>
+  </aside>
+</div>
+
+
+<%= link_to 'Edit', edit_cliente_path(@cliente) %> |
+<%= link_to 'Back', home_path %>

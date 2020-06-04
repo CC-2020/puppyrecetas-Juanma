@@ -1,0 +1,40 @@
+
+<% if current_user %>
+Logged in as <%= current_user.nombre %>.
+<%= link_to "Log Out", signout_path %>
+
+    <h1>Usuarios</h1>
+
+    <table class="table table-bordered table-striped"  border="1">
+    <thead>
+        <tr>
+        <th>Email</th>
+        <th>Nombre</th>
+        <th colspan="3"></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% @clientes.each do |cliente| %>
+        <tr>
+            <td><%= cliente.mail %></td>
+            <td><%= cliente.nombre %></td>
+            <td><%= link_to 'Show', cliente %></td>
+            <td><%= link_to 'Edit', edit_cliente_path(cliente) %></td>
+            <td><%= link_to 'Destroy', cliente, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+        <% end %>
+    </tbody>
+    </table>
+
+<br>
+
+<%= link_to 'New cliente', new_cliente_path %>
+
+
+<% else %>
+<h1>puppyrecetas</h1>
+  <%= link_to "Sign Up", signup_path %> or 
+  <%= link_to "Log In", login_path %>
+<% end %>
+<!--<p id="notice"><%= notice %></p>-->
